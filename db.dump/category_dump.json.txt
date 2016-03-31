@@ -1,0 +1,25 @@
+dump:category
+
+{"color": "#3f74ce", "description": "", "id": 1, "name": "Приключения"}
+
+{"color": "#EDA21F", "description": "", "id": 2, "name": "Кроссовер"}
+
+{"color": "#CEC12A", "description": "", "id": 3, "name": "Романтика"}
+
+{"color": "#45C950", "description": "", "id": 4, "name": "Драма"}
+
+{"color": "#45C9AB", "description": "", "id": 5, "name": "Ангст"}
+
+{"color": "#CA6565", "description": "", "id": 6, "name": "Флафф"}
+
+{"color": "#D84A9D", "description": "", "id": 7, "name": "Юмор"}
+
+{"color": "#8738D8", "description": "", "id": 8, "name": "Зарисовка"}
+
+{"color": "#B5835A", "description": "", "id": 9, "name": "Экшн"}
+
+{"color": "#808080", "description": "", "id": 10, "name": "Ужасы"}
+
+{"color": "#CA0707", "description": "", "id": 11, "name": "Эротика"}
+
+{"color": "#8760B0", "description": "", "id": 12, "name": "Повседневность"}

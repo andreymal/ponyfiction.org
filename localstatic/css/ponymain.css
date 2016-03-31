@@ -1,0 +1,168 @@
+body {
+    background: #c5ccfe url('../i/body-bg.png') repeat 0 0;
+}
+
+.page-header {
+    background-image: url('../i/header-bg.jpg');
+}
+
+.logopic {
+    background: transparent url('../i/logopics/logopic-6.jpg') no-repeat 0 0;
+    background-size: cover;
+}
+
+.nav-pills.nav-main {
+    background-image: url('../i/menu-bg.jpg');
+}
+
+.footer {
+    background-image: url('../i/header-bg.jpg');
+}
+
+
+/**
+ * RSS + Twitter icons
+*/
+.twitter {
+    background-image: url('../i/twitter.png');
+}
+
+.rss {
+    background-image: url('../i/rss.png');
+}
+
+.rss:hover,.twitter:hover {
+    background-position: 0 -32px;
+}
+
+.rss,.twitter {
+    float: right;
+    width: 32px;
+    height: 32px;
+    margin: 6px 0 0 12px;
+}
+
+
+/* Красивые картинки, маскоты, графика, истерэги */
+
+#comment-add-link + .comment-form { /* only for non-answer comment form */
+    background: transparent url('../i/pageart/comments.png') no-repeat 90% 100%;
+    min-height: 250px;
+}
+
+.page-404 {
+    background: transparent url('../i/pageart/404.png') no-repeat 90% 100%;
+}
+
+.page-500 {
+    background: transparent url('../i/pageart/500.png') no-repeat 90% 100%;
+}
+
+.page-tech-work {
+    background: transparent url('../i/pageart/tech-work.png') no-repeat 90% 100%;
+}
+
+.page-502 {
+    background: transparent url('../i/pageart/502.png') no-repeat 90% 80%;
+}
+
+.passres-form {
+    background: transparent url('../i/pageart/passres-form.png') no-repeat
+        90% 90%;
+}
+
+.passres-confirm {
+    background: transparent url('../i/pageart/passres-confirm.png')
+        no-repeat 90% 100%;
+}
+
+.passres-complete {
+    background: transparent url('../i/pageart/passres-complete.png')
+        no-repeat 90% 100%;
+}
+
+.passres-done {
+    background: transparent url('../i/pageart/passres-done.png') no-repeat
+        90% 90%;
+}
+
+.login-page {
+    background: transparent url('../i/pageart/login.png') no-repeat 90% 100%;
+}
+
+.page-faq {
+    background: transparent url('../i/pageart/faq.png') no-repeat 90% 100%;
+}
+
+.page-terms {
+    background: transparent url('../i/pageart/terms.png') no-repeat 90% 100%;
+}
+
+.page-help {
+    background: transparent url('../i/pageart/help.png') no-repeat 90% 100%;
+}
+
+.page-special,.page-404 .message-404,.message-502,.message-403
+    {
+    margin-bottom: 200px;
+}
+
+.pageart {
+    min-height: 200px;
+    text-align: right;
+}
+
+
+/* Голосования-подковки */
+
+.comment-vote-area .vote-up {
+    background: url('../i/upvote.png') center center no-repeat;
+}
+
+.comment-vote-area .vote-down {
+    background: url('../i/downvote.png') center center no-repeat;
+}
+
+
+/* Контакты автора */
+.contact-links a {
+    line-height: 16px;
+    height: 16px;
+    padding: 0 0 0 22px;
+    background: transparent url('../i/jabber.png') no-repeat 0 0;
+}
+
+.contact-links .contact-skype a {
+    background-image: url('../i/skype.png');
+}
+
+.contact-links .contact-tabun a {
+    background-image: url('../i/tabun.png');
+}
+
+.contact-links .contact-forum a {
+    background-image: url('../i/forum.png');
+}
+
+.contact-links .contact-vk a {
+    background-image: url('../i/vk.png');
+}
+
+
+/* Больное наследие Еврипони */
+.servicelinks {
+    display: block;
+    text-align: right;
+    list-style-type: none;
+}
+
+.servicelinks a {
+    font-size: 10px;
+    color: #E6E9F2;
+    text-decoration: none;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.main-menu {
+    padding-top: 4px;
+}

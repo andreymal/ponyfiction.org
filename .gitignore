@@ -1,0 +1,16 @@
+/.vagga
+/run
+
+__pycache__/
+*.py[cod]
+
+# submodule
+/mini_fiction/
+
+/sphinx/
+/media/
+/dump/
+/static/
+/local_settings.py
+/fabfile.py
+*.sqlite3

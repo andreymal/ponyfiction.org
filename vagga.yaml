@@ -1,0 +1,221 @@
+containers:
+  main:
+    environ:
+      MINIFICTION_SETTINGS: vagga_settings.Vagga
+      PYTHONPATH: /work
+    setup:
+    - !Ubuntu trusty
+    - !UbuntuUniverse
+    - !UbuntuPPA builds/sphinxsearch-rel22
+    - !AptTrust keys: [16932B16]
+    - !Install
+      - ca-certificates
+      - python3
+      - python3-pip
+      - uwsgi
+      - uwsgi-plugin-python3
+      - libxslt1.1            # lxml
+      - libmysqlclient18      # mysqlclient
+      - sphinxsearch
+      - build-essential
+      - git
+      - python-tk             # Pillow
+      - libjpeg-turbo8
+      - libpng12-0
+      - libwebp5
+      - libtiff5
+      - libffi6               # bcrypt
+      - libssl1.0.0           # scrypt
+    - !BuildDeps [
+        libmysqlclient-dev,   # mysqlclient
+        libxml2-dev,          # lxml
+        libxslt1-dev,         # lxml
+        libssl-dev,           # scrypt
+        libffi-dev,           # bcrypt
+        # Pillow:
+        libtiff5-dev, libjpeg-turbo8-dev, zlib1g-dev, libfreetype6-dev,
+        liblcms2-dev, libwebp-dev, tcl8.6-dev, tk8.6-dev, libpng12-dev,
+        python3-dev
+      ]
+    - !EnsureDir /storage
+    - !EnsureDir /sphinx
+    - !EnsureDir /work/run/storage/main
+    - !EnsureDir /work/run/storage/sphinx
+    - !EnsureDir /work/run/storage/sphinx/binlog
+    - !EnsureDir /log
+    - !EnsureDir /work/run/log/sphinx
+    - !Sh |
+        cd /work/mini_fiction
+        pip3 install flower
+        pip3 install -r optional-requirements.txt
+        make develop
+    volumes:
+      /storage: !BindRW /work/run/storage/main
+      /sphinx: !BindRW /work/run/storage/sphinx
+      /tmp: !Tmpfs { size: 256Mi, mode: 0o1777 }
+      /log: !BindRW /work/run/log/sphinx
+
+  redis:
+    setup:
+    - !Alpine v3.3
+    - !Install [redis]
+    - !EnsureDir /storage
+    - !EnsureDir /work/run/storage/redis
+    volumes:
+      /storage: !BindRW /work/run/storage/redis
+
+  mailcatcher:
+    setup:
+    - !Alpine v3.3
+    - !Install [ruby, sqlite-libs, sqlite, libstdc++]
+    - !BuildDeps [ruby-dev, make, gcc, libc-dev, g++, sqlite-dev]
+    - !Sh "gem install --no-document bigdecimal mailcatcher"
+
+  memcached:
+    setup:
+    - !Alpine v3.3
+    - !Install [memcached]
+
+  nginx:
+    setup:
+    - !Alpine v3.3
+    - !Install [nginx]
+    - !Text
+      /etc/passwd: "root:x:0:0:root:/root:/bin/false\n"
+      /etc/group: "root:x:0:\n"
+    - !EnsureDir /log
+    - !EnsureDir /work/run/log/nginx
+    - !EnsureDir /storage  # for static
+    volumes:
+      /storage: !BindRW /work/run/storage/main
+      /tmp: !Tmpfs
+        size: 256Mi
+        mode: 0o1777
+      /var/log/nginx: !Tmpfs
+        size: 1Mi
+        mode: 0o1777
+      /log: !BindRW /work/run/log/nginx
+
+  mysql:
+    setup:
+    - !Alpine v3.3
+    - !Install [mariadb, mariadb-client]
+    - !EnsureDir /storage
+    - !EnsureDir /work/run/storage/mysql
+    - !EnsureDir /log
+    - !EnsureDir /work/run/log/mysql
+    - !Sh "chown mysql:mysql -R /storage"
+    - !Sh "chown mysql:mysql -R /log"
+    volumes:
+      /storage: !BindRW /work/run/storage/mysql
+      /log: !BindRW /work/run/log/mysql
+      /tmp: !Tmpfs { size: 256Mi, mode: 0o1777 }
+
+commands:
+  bash: !Command
+    description: Run bash
+    container: main
+    run:
+    - bash
+
+  db_init: !Command
+    description: Initialize fresh MySQL database
+    container: mysql
+    environ:
+      DATADIR: /storage
+      MYSQL_USER: root
+      MYSQL_PASSWORD: fanfics
+      MYSQL_DATABASE: mini_fiction
+    run:
+    - sh
+    - -c
+    - |
+      rm -r /storage/*
+      rm -r /log/*
+      chown mysql:mysql -R /storage
+      mysql_install_db --user=mysql --datadir=$DATADIR --pid-file=/tmp/mysql.pid --log-bin=mariadb-bin --log-bin-index=mariadb-bin.index
+      mysqld_safe --defaults-extra-file=/work/config/mysql.conf --skip-syslog --no-auto-restart
+      sleep 5
+      mysqladmin --host=127.0.0.1 --port=3305 --user=$MYSQL_USER password $MYSQL_PASSWORD
+      mysqladmin --host=127.0.0.1 --port=3305 --user=$MYSQL_USER --password=$MYSQL_PASSWORD create $MYSQL_DATABASE
+
+  manage: !Command
+    description: mini_fiction executable
+    container: main
+    run:
+    - mini_fiction
+
+  devserver: !Command
+    description: Flask development server with automatic restart
+    container: main
+    run:
+    - mini_fiction
+    - runserver
+    - -t
+
+  run: !Supervise
+    description: Run full server stack using uWSGI app server
+    kill-unresponsive-after: 15
+    children:
+      redis: !Command
+        container: redis
+        run:
+        - redis-server
+        - /work/config/redis.conf
+      mailcatcher: !Command
+        container: mailcatcher
+        run:
+        - mailcatcher
+        - -f
+        - --ip
+        - 127.0.0.1
+      memcached: !Command
+        container: memcached
+        run:
+        - memcached
+        - -m512
+        - -uroot
+        - -p11219
+        - -l127.0.0.1
+      uwsgi: !Command
+        container: main
+        run: |
+          sleep 5
+          uwsgi /work/config/uwsgi-app.ini
+      celery: !Command
+        container: main
+        run: |
+          sleep 5
+          celery -A mini_fiction worker --loglevel=INFO
+      flower: !Command
+        container: main
+        run: |
+          sleep 7
+          flower -A mini_fiction
+      nginx: !Command
+        container: nginx
+        run:
+        - nginx
+        - -c
+        - /work/config/nginx.conf
+      sphinx: !Command
+        container: main
+        run:
+        - searchd
+        - --console
+        - --config
+        - /work/sphinxconf.sh
+      mysql: !Command
+        container: mysql
+        run:
+        - mysqld_safe
+        - --defaults-extra-file=/work/config/mysql.conf
+        - --skip-syslog
+        - --console
+        - --debug-gdb  # Ctrl+C support
+
+  make: !Command
+    description: "GNU make tool (package, test, clean, etc.)"
+    container: main
+    run:
+    - make

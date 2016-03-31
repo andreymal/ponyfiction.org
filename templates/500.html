@@ -1,0 +1,18 @@
+{% extends base %}
+{% from 'macro.html' import breadcrumbs with context %}
+{% block title %}500 — внутренняя ошибка сервера{% endblock %}
+{% block content %}
+
+<div class="row page-500">
+    <div class="span12">
+        {{- breadcrumbs(current='500 — внутренняя ошибка сервера') }}
+    </div>
+    <div class="span12 message-500">
+        <h1>500 — внутренняя ошибка сервера</h1>
+        <p>Пегасы с отвертками что-то напортачили в тонкой душе сервера. Если хотите помочь, <a href="{{ config['SITE_FEEDBACK'] }}">напишите</a>, как вам удалось добиться этой ошибки.</p>
+    </div>
+    <div class="span12">
+        {{- breadcrumbs(current='500 — внутренняя ошибка сервера') }}
+    </div>
+</div>
+{% endblock %}
