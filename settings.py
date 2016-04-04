@@ -24,7 +24,7 @@ class Config(BaseConfig):
     PASSWORD_HASHER = 'bcrypt'
     AVATARS_UPLOADING = True
 
-    STATIC_V = 2
+    STATIC_V = 3
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 
