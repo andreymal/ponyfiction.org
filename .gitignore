@@ -4,6 +4,9 @@
 __pycache__/
 *.py[cod]
 
+# virtualenv
+/env/
+
 # submodule
 /mini_fiction/
 
