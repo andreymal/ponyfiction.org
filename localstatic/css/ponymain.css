@@ -3,7 +3,7 @@ body {
 }
 
 .page-header {
-    background-image: url('../i/header-bg.jpg');
+    background-image: url('../i/bg.jpg');
 }
 
 .logopic {
@@ -11,12 +11,13 @@ body {
     background-size: cover;
 }
 
-.nav-pills.nav-main {
-    background-image: url('../i/menu-bg.jpg');
+.nav-main {
+    background-image: url('../i/bg.jpg');
+    background-position: 0 -80px;
 }
 
 .footer {
-    background-image: url('../i/header-bg.jpg');
+    background-image: url('../i/bg.jpg');
 }
 
 
@@ -150,6 +151,7 @@ body {
 
 
 /* Больное наследие Еврипони */
+
 .servicelinks {
     display: block;
     text-align: right;
@@ -165,4 +167,46 @@ body {
 
 .main-menu {
     padding-top: 4px;
+}
+
+
+@media (min-width: 1200px) {
+    /* like everypony.ru */
+    .page-header, .footer {
+        margin: 0px -26px;
+        width: auto;
+    }
+
+    .nav-main {
+        background-position: -6px -80px;
+    }
+
+    .footer {
+        background-position: -6px 0;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .nav-main-links {
+        background-color: #1D2A4F;
+    }
+}
+
+
+/* Smartphones */
+@media ( max-width : 480px) {
+    .servicelinks {
+        display: none;
+    }
+    .rss,.twitter {
+        margin: 0 0 0 6px;
+    }
+}
+
+/* 320 px screens */
+@media ( max-width : 320px) {
+    .rss,.twitter {
+        display: none;
+    }
 }
