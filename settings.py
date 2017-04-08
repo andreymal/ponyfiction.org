@@ -29,7 +29,7 @@ class Config(BaseConfig):
     LOCALTEMPLATES = 'templates'
 
     STORY_COMMENTS_BY_GUEST = False
-    NOTICE_COMMENTS_BY_GUEST = True
+    NEWS_COMMENTS_BY_GUEST = True
     STARS_MINIMUM_VOTES = 1
 
     PUBLISH_SIZE_LIMIT = 20

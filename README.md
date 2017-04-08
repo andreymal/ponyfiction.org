@@ -97,7 +97,7 @@ cd ..  # назад в каталог stories.andreymal.org
 Для просто потыкать и для production:
 
 ```
-pip install mini_fiction[full]
+pip install 'mini_fiction[full]==0.0.3'
 ```
 
 * Настраиваем сам сайт:

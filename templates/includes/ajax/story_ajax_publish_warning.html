@@ -9,14 +9,14 @@
             <p>Его размер составляет всего {{ ngettext("%(num)d word", "%(num)d words", story.words) }} что меньше {{ need_words }}, необходимых для публикации.</p>
         {% else %}
             <p>
-                Там нет ни единого слова, что недопустимо.&nbsp;
-                    {% if story.chapters.count() == 0 %}
-                        Более того, лучшие отряды поисковых пегасов не то, что слов — даже глав не нашли!
-                    {% endif %}
+                Там нет ни единого слова, что недопустимо.
+                {% if story.chapters.count() == 0 %}
+                    Более того, лучшие отряды поисковых пегасов не то, что слов — даже глав не нашли!
+                {% endif %}
             </p>
         {% endif %}
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Вернуться к редактированию рассказа</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Вернуться</button>
 </div>
