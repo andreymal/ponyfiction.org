@@ -1,23 +1,25 @@
 dump:charactergroup
 
-{"characters": [1, 2, 3, 4, 5, 6, 10], "description": "", "id": 2, "name": "Mane 6"}
+{"description": "", "id": 2, "name": "Mane 6"}
 
-{"characters": [11, 12], "description": "", "id": 3, "name": "Принцессы"}
+{"description": "", "id": 3, "name": "Принцессы"}
 
-{"characters": [7, 8, 9, 66], "description": "", "id": 4, "name": "СМС"}
+{"description": "", "id": 4, "name": "СМС"}
 
-{"characters": [43, 44, 65], "description": "", "id": 5, "name": "Неопределенные"}
+{"description": "", "id": 5, "name": "Неопределенные"}
 
-{"characters": [13, 14, 15, 24, 26, 27, 28, 29, 30, 31, 32, 49], "description": "", "id": 6, "name": "Звезды первого сезона"}
+{"description": "", "id": 6, "name": "Звезды первого сезона"}
 
-{"characters": [48, 55, 57, 59, 60, 61, 62, 63, 64, 68, 70, 71], "description": "", "id": 7, "name": "Звезды второго сезона"}
+{"description": "", "id": 7, "name": "Звезды второго сезона"}
 
-{"characters": [69, 74], "description": "", "id": 8, "name": "Звезды 3, 4, 5, 6 сезонов"}
+{"description": "", "id": 8, "name": "Звезды 3, 4, 5, 6 сезонов"}
 
-{"characters": [16, 17, 18], "description": "", "id": 10, "name": "Эппл-родственники"}
+{"description": "", "id": 10, "name": "Эппл-родственники"}
 
-{"characters": [19, 20, 21, 22, 23, 50], "description": "", "id": 11, "name": "Жеребята"}
+{"description": "", "id": 11, "name": "Жеребята"}
 
-{"characters": [33, 34, 35, 36, 37, 38, 53], "description": "", "id": 12, "name": "Животные, упячка"}
+{"description": "", "id": 12, "name": "Животные, упячка"}
 
-{"characters": [25, 39, 40, 41, 42, 45, 46, 47, 51, 52, 54, 56, 58, 67, 72, 73, 75], "description": "", "id": 13, "name": "Бэкграунд-пони"}
+{"description": "", "id": 13, "name": "Бэкграунд-пони"}
+
+{"description": "", "id": 14, "name": "Другие"}
