@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
-
 from mini_fiction.settings import Config as BaseConfig
 
 
@@ -19,16 +17,14 @@ class Config(BaseConfig):
     SPHINX_DISABLED = False
 
     PLUGINS = ['stories_migration']
-    STATIC_ROOT = os.path.join(os.getcwd(), 'static')
 
-    PASSWORD_HASHER = 'bcrypt'
     AVATARS_UPLOADING = True
 
-    STATIC_V = 3
+    STATIC_V = 4
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 
-    STORY_COMMENTS_BY_GUEST = False
+    STORY_COMMENTS_BY_GUEST = True
     NEWS_COMMENTS_BY_GUEST = True
     STARS_MINIMUM_VOTES = 1
 

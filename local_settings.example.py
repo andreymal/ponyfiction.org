@@ -7,6 +7,8 @@ from settings import Development
 
 
 class Local(Development):
+    # SECRET_KEY = 'foo'
+
     # DATABASE_ENGINE = 'mysql'
     # DATABASE = {
     #     'host': '127.0.0.1',
@@ -22,6 +24,7 @@ class Local(Development):
     # ERROR_EMAIL_FROM = 'minifiction@example.org'
     # ERROR_EMAIL_HANDLER_PARAMS = {'mailhost': ('127.0.0.1', 1025)}
 
+    # EMAIL_HOST = '127.0.0.1'
     # EMAIL_PORT = 1025
     # DEFAULT_FROM_EMAIL = 'minifiction@example.org'
 
@@ -31,7 +34,8 @@ class Local(Development):
     # NOCAPTCHA = False
 
     # PROXIES_COUNT = 1
-    # SECRET_KEY = 'foo'
+
+    # STATIC_ROOT = os.path.join(os.getcwd(), 'static')
 
     SPHINX_CONFIG = dict(Development.SPHINX_CONFIG)
     SPHINX_CONFIG['connection_params'] = {'host': '127.0.0.1', 'port': 9306, 'charset': 'utf8'}
