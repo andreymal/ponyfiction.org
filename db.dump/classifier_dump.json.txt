@@ -83,3 +83,5 @@ dump:classifier
 {"description": "", "id": 41, "name": "Школьные истории"}
 
 {"description": "", "id": 42, "name": "Эротические сцены"}
+
+{"description": "", "id": 43, "name": "Хуманизация"}
