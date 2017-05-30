@@ -34,7 +34,7 @@
     {% include 'includes/nav.html' %}
     </div>
     <!-- Menu end -->
-    {% include 'includes/shown_newsitem.html' %}
+    {% include 'includes/important_notifications.html' %}
     <!-- Content start -->
     <div id="content">
 
@@ -50,7 +50,7 @@
     <div class="modal hide fade" id="modal">{% block modal %}{% endblock %}</div>
     <img id="loading-icon" src="{{ url_for('localstatic', filename='i/loading.gif') }}" alt="..." class="loader loader-hidden" />
 
-    <div id="notifications"></div>
+    <div class="popup-notifications" id="popup-notifications"></div>
 {% include 'base_body_scripts.html' %}
 </body>
 </html>

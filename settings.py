@@ -20,7 +20,7 @@ class Config(BaseConfig):
 
     AVATARS_UPLOADING = True
 
-    STATIC_V = 4
+    STATIC_V = '20170530'
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 

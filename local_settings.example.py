@@ -18,7 +18,8 @@ class Local(Development):
     #     'db': 'mini_fiction',
     # }
 
-    # SITE_URL = 'https://stories.andreymal.org'
+    # SERVER_NAME = 'stories.andreymal.org'
+    # PREFERRED_URL_SCHEME = 'https'
 
     # ADMINS = ['admin@example.org']
     # ERROR_EMAIL_FROM = 'minifiction@example.org'
@@ -26,7 +27,7 @@ class Local(Development):
 
     # EMAIL_HOST = '127.0.0.1'
     # EMAIL_PORT = 1025
-    # DEFAULT_FROM_EMAIL = 'minifiction@example.org'
+    # DEFAULT_FROM_EMAIL = ('Не тот пони-почтовик', 'minifiction@example.org')
 
     # REGISTRATION_OPEN = True
     # RECAPTCHA_PUBLIC_KEY = '...'
