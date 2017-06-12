@@ -41,7 +41,7 @@ templates = {
             </div>
           </div>
         {% if error %}
-          <div class="control-group error"><span class="help-inline">{{ error }}</span></div>
+          <div class="control-group error"><span class="help-inline">{{ error|safe }}</span></div>
         {% endif %}
         <div class="form-actions">
           <button class="btn btn-primary" type="submit">Продолжить</button>
@@ -83,7 +83,7 @@ def auth():
     if request.method == 'POST':
         user = Author.get(username=request.form.get('author')) if request.form.get('author') else None
         if not user:
-            error = 'Нет такого пользователя'
+            error = current_app.config['MIGRATION_USER_ERROR']
         elif user.email:
             error = 'У пользователя установлена электронная почта, получайте доступ через неё'
         else:
@@ -157,5 +157,11 @@ def custom_nav():
 def configure_app(register_hook):
     current_app.config.setdefault('MIGRATION_SITE', 'https://stories.everypony.ru')
     current_app.config.setdefault('MIGRATION_NAME', 'stories.everypony.ru')
+    current_app.config.setdefault('MIGRATION_USER_ERROR', (
+        'Пользователь с таким ником не найден. Возможно, он был '
+        'зарегистрирован недавно и не успел попасть в базу данных этого '
+        'сайта. Попробуйте обратиться к <a href="{feedback}" target="_blank">'
+        'администрации</a> для обновления базы.'
+    ).format(feedback=current_app.config['SITE_FEEDBACK']))
     current_app.register_blueprint(bp)
     register_hook('nav', custom_nav)
