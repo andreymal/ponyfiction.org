@@ -20,7 +20,7 @@ class Config(BaseConfig):
 
     AVATARS_UPLOADING = True
 
-    STATIC_V = '20170710'
+    STATIC_V = '20170826'
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 
@@ -32,10 +32,6 @@ class Config(BaseConfig):
 
     FAVICON_URL = '/localstatic/i/favicon.ico'
 
-    RANDOM_LOGOS = [
-        {'endpoint': 'localstatic', 'filename': 'i/logopics/logopic-{}.jpg'.format(i)}
-        for i in range(1, 9)
-    ]
     DEFAULT_USERPIC = {'endpoint': 'localstatic', 'filename': 'i/userpic.jpg'}
 
     CONTACTS = [

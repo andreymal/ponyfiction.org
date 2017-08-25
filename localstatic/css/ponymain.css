@@ -6,11 +6,6 @@ body {
     background-image: url('../i/bg.jpg');
 }
 
-.logopic {
-    background: transparent url('../i/logopics/logopic-6.jpg') no-repeat 0 0;
-    background-size: cover;
-}
-
 .nav-main {
     background-image: url('../i/bg.jpg');
     background-position: 0 -80px;

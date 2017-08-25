@@ -20,7 +20,7 @@ cd stories.andreymal.org
   lxml, Pillow или scrypt могут собираться из исходников; подробнее
   см. в документации по mini_fiction.
 
-Для разработки (virtualenv по вкусу):
+Вариант первый — для разработки (virtualenv по вкусу):
 
 ```
 virtualenv env
@@ -34,7 +34,7 @@ make develop
 cd ..  # назад в каталог stories.andreymal.org
 ```
 
-Для просто потыкать и для production:
+Вариант второй — для просто потыкать и для боевого сервера:
 
 ```
 pip install 'mini_fiction[full]==0.0.3'
@@ -52,19 +52,32 @@ cp local_settings.example.py local_settings.py
 В файле `local_settings.py` предлагается настроить `SECRET_KEY`, подключение
 к MySQL, отправку почты и прочее.
 
+* Загружаем и распаковываем актуальный дамп некоторых объектов базы данных
+  (жанры, персонажи, картинки в шапке и т.п.) отсюда:
+
+  https://stories.andreymal.org/dump/
+
+  Помещаем `media` туда, где собственно должен располагаться каталог `media`
+  (если вы изменили путь в настройках), а дамп базы загружаем следующей
+  командой (после чего каталог `dump` можно удалить):
+
+```
+mini_fiction loaddb dump
+```
+
+* Если скачать дамп нет возможности и не хочется, то запускаем
+  `mini_fiction seed` и всё остальное заполняем позже через админку.
+
 * Проверяем работоспособность настроек:
 
 ```
 mini_fiction status
 ```
 
-* Инициализируем данные (здесь и далее команды выполняются в virtualenv при его наличии
-  и в корне проекта):
+* Если нужно, создаём суперпользователя:
 
 ```
-mini_fiction loaddb db.dump
-cp -Rp media.dump media
-mini_fiction createsuperuser  # Если нужно
+mini_fiction createsuperuser
 ```
 
 * Теперь можно запустить сервер:
@@ -79,13 +92,15 @@ mini_fiction runserver
   и складировать туда статику командой `mini_fiction collectstatic`. Но тогда
   нужно не забывать повторять эту команду при каждом обновлении mini_fiction.
 
-* Запуск Celery для обработки различных задач:
+* Запуск Celery для обработки различных задач (в этом примере worker и beat
+  в одном процессе):
 
 ```
-celery -A mini_fiction worker --loglevel=INFO
+celery -A mini_fiction worker -B --loglevel=INFO
 ```
 
-* Запуск Sphinx для поиска рассказов и глав (тоже из-под virtualenv, если он есть):
+* Запуск Sphinx для поиска рассказов и глав (тоже из-под virtualenv, если
+  он есть):
 
 ```
 searchd -c sphinxconf.sh

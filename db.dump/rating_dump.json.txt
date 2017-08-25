@@ -1,9 +1,0 @@
-dump:rating
-
-{"description": "", "id": 1, "name": "NC-18", "stories": []}
-
-{"description": "", "id": 2, "name": "R", "stories": []}
-
-{"description": "", "id": 3, "name": "PG-13", "stories": []}
-
-{"description": "", "id": 4, "name": "G", "stories": []}
