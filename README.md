@@ -20,7 +20,7 @@ cd stories.andreymal.org
   lxml, Pillow или scrypt могут собираться из исходников; подробнее
   см. в документации по mini_fiction.
 
-Вариант первый — для разработки (virtualenv по вкусу):
+Устанавливаем mini_fiction (virtualenv по вкусу):
 
 ```
 virtualenv env
@@ -32,12 +32,6 @@ cd mini_fiction
 pip install -r optional-requirements.txt
 make develop
 cd ..  # назад в каталог stories.andreymal.org
-```
-
-Вариант второй — для просто потыкать и для боевого сервера:
-
-```
-pip install 'mini_fiction[full]==0.0.3'
 ```
 
 * Настраиваем сам сайт:
@@ -86,11 +80,15 @@ mini_fiction createsuperuser
 mini_fiction runserver
 ```
 
+* После запуска сайт станет доступен по адресу `http://localhost:5000/`
+
 * Если вы хотите сгрузить каталог `static` куда-то отдельно для, например,
   раздачи через nginx, можно прописать в настройках путь к нужному вам
   каталогу, например: `STATIC_ROOT = os.path.join(os.getcwd(), 'static')` —
   и складировать туда статику командой `mini_fiction collectstatic`. Но тогда
   нужно не забывать повторять эту команду при каждом обновлении mini_fiction.
+  Также рекомендуется после этого менять настройку `STATIC_V` для чистки кэша
+  в браузерах.
 
 * Запуск Celery для обработки различных задач (в этом примере worker и beat
   в одном процессе):
@@ -105,3 +103,6 @@ celery -A mini_fiction worker -B --loglevel=INFO
 ```
 searchd -c sphinxconf.sh
 ```
+
+Подробнее про настройку и развёртывание читайте в файле
+`mini_fiction/INSTALL.md`.
