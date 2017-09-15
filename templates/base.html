@@ -9,12 +9,9 @@
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes">
-    {% if config['FAVICON_URL'] -%}
-        <link rel="shortcut icon" type="image/x-icon" href="{{ config['FAVICON_URL'] }}" />
-    {%- endif %}
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
 {% include 'base_head.html' %}
     <link rel="stylesheet" href="{{ url_for('localstatic', filename='css/ponymain.css') }}" />
+{% block extrahead %}{% endblock %}
 </head>
 
 <body>
@@ -22,11 +19,11 @@
     <div class="container">
     {% include 'includes/header.html' with context %}
     <!-- Content start -->
-    <div id="content">
+    <main id="content">
 
     {%- block content %}{% endblock -%}
 
-    </div>
+    </main>
     <!-- Content end -->
     <footer class="footer">{{ html_block('footer') }}</footer>
     </div>
@@ -38,5 +35,6 @@
 
     <div class="popup-notifications" id="popup-notifications"></div>
 {% include 'base_body_scripts.html' %}
+{% block extrabody %}{% endblock %}
 </body>
 </html>
