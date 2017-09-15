@@ -38,6 +38,8 @@ class Local(Development):
 
     # STATIC_ROOT = os.path.join(os.getcwd(), 'static')
 
+    STATIC_V = '19700101'
+
     SPHINX_CONFIG = dict(Development.SPHINX_CONFIG)
     SPHINX_CONFIG['connection_params'] = {'host': '127.0.0.1', 'port': 9306, 'charset': 'utf8'}
 

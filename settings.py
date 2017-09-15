@@ -22,7 +22,6 @@ class Config(BaseConfig):
 
     AVATARS_UPLOADING = True
 
-    STATIC_V = '20170826'
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 
