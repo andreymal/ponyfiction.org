@@ -20,6 +20,9 @@ class Config(BaseConfig):
 
     PLUGINS = ['stories_migration']
 
+    CAPTCHA_CLASS = 'mini_fiction.captcha.ReCaptcha'
+    CAPTCHA_FOR_GUEST_COMMENTS = True
+
     AVATARS_UPLOADING = True
 
     LOCALSTATIC_ROOT = 'localstatic'
