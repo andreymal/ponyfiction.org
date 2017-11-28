@@ -10,6 +10,8 @@ class Config(BaseConfig):
     SITE_DESCRIPTION = {'default': 'Библиотека фанфиков по вселенной сериала My Little Pony: Friendship is Magic'}
     SITE_FEEDBACK = 'https://tabun.everypony.ru/talk/add/?talk_users=andreymal'
 
+    USER_AGENT_POSTFIX = 'stories.andreymal.org/{}'.format(mini_fiction.__version__)
+
     CACHE_PREFIX = 'mfc_sao_'
 
     REGISTRATION_AUTO_LOGIN = True
