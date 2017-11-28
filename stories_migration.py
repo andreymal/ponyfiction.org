@@ -3,7 +3,7 @@
 
 import random
 import string
-import urllib
+import urllib.request
 
 from pony import orm
 from pony.orm import db_session
@@ -81,9 +81,24 @@ templates = {
 def auth():
     error = None
     if request.method == 'POST':
+        safe_username = str(request.form.get('author'))[:254].replace('\n', '')
         user = Author.get(username=request.form.get('author')) if request.form.get('author') else None
         if not user:
-            error = current_app.config['MIGRATION_USER_ERROR']
+            if current_app.config.get('MIGRATION_TABUN_FEEDBACK_TO'):
+                feedback = 'https://tabun.everypony.ru/talk/add/?talk_users={}&talk_title={}'.format(
+                    urllib.request.quote(current_app.config['MIGRATION_TABUN_FEEDBACK_TO']),
+                    'Не найден аккаунт {} в базе {}'.format(
+                        urllib.request.quote(safe_username),
+                        'stories.andreymal.org',  # TODO: заменить на request.host после релиза Flask 0.13
+                    )
+                )
+            else:
+                feedback = current_app.config['SITE_FEEDBACK']
+            error = current_app.config['MIGRATION_USER_ERROR'].format(
+                username=html_escape(safe_username),
+                feedback=feedback,
+                migration_name=html_escape(current_app.config['MIGRATION_NAME']),
+            )
         elif user.email:
             error = 'У пользователя установлена электронная почта, получайте доступ через неё'
         else:
@@ -116,7 +131,7 @@ def approve(auth_token):
         try:
             data = urllib.request.urlopen(req, timeout=10).read().decode('utf-8', 'replace')
         except IOError as exc:
-            nodownload = str(exc).replace('&', '&amp;').replace('<', '&lt;')
+            nodownload = html_escape(str(exc))
             nodownload_link = link
         # простейший анти-DDoS
         current_app.cache.set('stories_migration_{}'.format(migration.user_id), data, 2)
@@ -151,17 +166,26 @@ def my_render_template(name, **kwargs):
 def custom_nav():
     if current_user.is_authenticated:
         return ''
-    return '<li id="nav_stories_auth"><a href="/stories_auth/">Войти через stories.everypony.ru</a></li>'
+    return '<li id="nav_stories_auth"><a href="/stories_auth/">Войти через {}</a></li>'.format(
+        html_escape(current_app.config['MIGRATION_NAME'])
+    )
+
+
+def html_escape(s):
+    return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
 
 
 def configure_app(register_hook):
     current_app.config.setdefault('MIGRATION_SITE', 'https://stories.everypony.ru')
     current_app.config.setdefault('MIGRATION_NAME', 'stories.everypony.ru')
+    current_app.config.setdefault('MIGRATION_TABUN_FEEDBACK_TO', 'andreymal')
     current_app.config.setdefault('MIGRATION_USER_ERROR', (
         'Пользователь с таким ником не найден. Возможно, он был '
         'зарегистрирован недавно и не успел попасть в базу данных этого '
-        'сайта. Попробуйте обратиться к <a href="{feedback}" target="_blank">'
-        'администрации</a> для обновления базы.'
-    ).format(feedback=current_app.config['SITE_FEEDBACK']))
+        'сайта. Попробуйте повторить через пару часов; если снова '
+        'не получится, <a href="{feedback}" target="_blank">'
+        'сообщите об этом</a>, обязательно указав ссылку на ваш аккаунт '
+        'на {migration_name}.'
+    ))
     current_app.register_blueprint(bp)
     register_hook('nav', custom_nav)

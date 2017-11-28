@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from celery.schedules import crontab
+
+import mini_fiction
 from mini_fiction.settings import Config as BaseConfig
 
 
@@ -18,9 +21,18 @@ class Config(BaseConfig):
     REGISTRATION_OPEN = False
 
     CELERY_ALWAYS_EAGER = False
+    CELERY_CONFIG = dict(BaseConfig.CELERY_CONFIG)
+    CELERY_CONFIG['beat_schedule'] = dict(BaseConfig.CELERY_CONFIG['beat_schedule'])
+    CELERY_CONFIG['beat_schedule']['import_users'] = {
+        'task': 'import_users',
+        'schedule': crontab(minute='27,57'),
+    }
+
     SPHINX_DISABLED = False
 
-    PLUGINS = ['stories_migration']
+    PLUGINS = ['stories_migration', 'stories_users_import']
+
+    USERS_IMPORT_MAX_ID = None
 
     CAPTCHA_CLASS = 'mini_fiction.captcha.ReCaptcha'
     CAPTCHA_FOR_GUEST_COMMENTS = True
