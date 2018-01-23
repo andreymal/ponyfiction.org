@@ -15,7 +15,7 @@ class Config(BaseConfig):
 
     USER_AGENT_POSTFIX = 'stories.andreymal.org/{}'.format(mini_fiction.__version__)
 
-    CACHE_PREFIX = 'mfc_sao_'
+    CACHE_KEY_PREFIX = 'mfc_sao_'
 
     REGISTRATION_AUTO_LOGIN = True
     REGISTRATION_OPEN = False
