@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import time
+import random
+import string
 from datetime import datetime
 from urllib.request import Request, urlopen
 
@@ -104,6 +106,10 @@ def import_users():
             print('Found new user {} with id {}, saving'.format(userinfo['username'], userinfo['id']))
         # Найденного нового пользователя создаём
         contacts = userinfo.pop('contacts')
+
+        userinfo['activated_at'] = userinfo['date_joined']
+        userinfo['session_token'] = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(32))
+
         with orm.db_session:
             author = Author(**userinfo)
             author.flush()
