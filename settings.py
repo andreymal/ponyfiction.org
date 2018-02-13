@@ -9,6 +9,7 @@ from mini_fiction.settings import Config as BaseConfig
 
 class Config(BaseConfig):
     SITE_NAME = {'default': 'Библиотека ponyfiction.org'}
+    EMAIL_SITE_NAME = {'default': 'Библиотека'}
     SITE_INDEX_TITLE = {'default': 'Библиотека ponyfiction.org'}
     SITE_DESCRIPTION = {'default': 'Библиотека фанфиков по вселенной сериала My Little Pony: Friendship is Magic'}
     SITE_FEEDBACK = 'https://tabun.everypony.ru/talk/add/?talk_users=andreymal'
