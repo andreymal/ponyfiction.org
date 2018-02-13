@@ -1,8 +1,8 @@
-# stories.andreymal.org
+# ponyfiction.org
 
 Данный репозиторий содержит статические файлы, шаблоны и конфигурацию сайта
-[stories.andreymal.org](https://stories.andreymal.org/), работающего на
-движке [mini_fiction](https://github.com/andreymal/mini_fiction).
+[ponyfiction.org](https://ponyfiction.org/), работающего на движке
+[mini_fiction](https://github.com/andreymal/mini_fiction).
 
 
 ## Установка
@@ -12,8 +12,8 @@
 * Скачиваем репозиторий
 
 ```
-git clone https://github.com/andreymal/stories.andreymal.org
-cd stories.andreymal.org
+git clone https://github.com/andreymal/ponyfiction.org
+cd ponyfiction.org
 ```
 
 * Далее устанавливаем сам mini_fiction. Некоторые зависимости вроде
@@ -31,7 +31,7 @@ cd mini_fiction
 
 pip install -r optional-requirements.txt
 make develop
-cd ..  # назад в каталог stories.andreymal.org
+cd ..  # назад в каталог ponyfiction.org
 ```
 
 * Настраиваем сам сайт:
@@ -49,7 +49,7 @@ cp local_settings.example.py local_settings.py
 * Загружаем и распаковываем актуальный дамп некоторых объектов базы данных
   (жанры, персонажи, картинки в шапке и т.п.) отсюда:
 
-  https://stories.andreymal.org/dump/
+  https://ponyfiction.org/dump/
 
   Помещаем `media` туда, где собственно должен располагаться каталог `media`
   (если вы изменили путь в настройках), а дамп базы загружаем следующей
