@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from celery.schedules import crontab
-
 import mini_fiction
 from mini_fiction.settings import Config as BaseConfig
 
@@ -19,35 +17,26 @@ class Config(BaseConfig):
     CACHE_KEY_PREFIX = 'mfc_pf_'
 
     REGISTRATION_AUTO_LOGIN = True
-    REGISTRATION_OPEN = False
+    REGISTRATION_OPEN = True
 
-    CELERY_ALWAYS_EAGER = False
     CELERY_CONFIG = dict(BaseConfig.CELERY_CONFIG)
-    CELERY_CONFIG['beat_schedule'] = dict(BaseConfig.CELERY_CONFIG['beat_schedule'])
-    CELERY_CONFIG['beat_schedule']['import_users'] = {
-        'task': 'import_users',
-        'schedule': crontab(minute='27,57'),
-    }
+    CELERY_CONFIG['task_always_eager'] = False
 
     SPHINX_DISABLED = False
 
-    PLUGINS = ['stories_migration', 'stories_users_import']
-
-    USERS_IMPORT_MAX_ID = None
-
     CAPTCHA_CLASS = 'mini_fiction.captcha.ReCaptcha'
-    CAPTCHA_FOR_GUEST_COMMENTS = True
+    CAPTCHA_FOR_GUEST_COMMENTS = False
 
     AVATARS_UPLOADING = True
 
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'
 
-    STORY_COMMENTS_BY_GUEST = True
-    NEWS_COMMENTS_BY_GUEST = True
-    MINIMUM_VOTES_FOR_VIEW = 1
+    STORY_COMMENTS_BY_GUEST = False
+    NEWS_COMMENTS_BY_GUEST = False
+    MINIMUM_VOTES_FOR_VIEW = 5
 
-    PUBLISH_SIZE_LIMIT = 20
+    PUBLISH_SIZE_LIMIT = 1000
 
     FAVICON_URL = '/localstatic/i/favicon.ico'
 
