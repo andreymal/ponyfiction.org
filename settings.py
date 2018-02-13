@@ -36,7 +36,7 @@ class Config(BaseConfig):
     NEWS_COMMENTS_BY_GUEST = False
     MINIMUM_VOTES_FOR_VIEW = 5
 
-    PUBLISH_SIZE_LIMIT = 1000
+    PUBLISH_SIZE_LIMIT = 400
 
     FAVICON_URL = '/localstatic/i/favicon.ico'
 
