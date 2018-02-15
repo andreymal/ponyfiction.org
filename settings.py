@@ -38,8 +38,8 @@ class Config(BaseConfig):
     PUBLISH_SIZE_LIMIT = 400
 
     FAVICON_URL = '/localstatic/i/favicon.ico'
-
     DEFAULT_USERPIC = {'endpoint': 'localstatic', 'filename': 'i/userpic.jpg'}
+    LOADING_ICON = {'endpoint': 'localstatic', 'filename': 'i/loading.gif'}
 
     CONTACTS = [
         {
