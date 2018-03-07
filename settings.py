@@ -67,6 +67,18 @@ class Config(BaseConfig):
             'title_template': '{value}',
         },
         {
+            'name': 'telegram',
+            'label': {
+                'default': 'Telegram',
+            },
+            'schema': {
+                'regex': r'^[a-zA-Z0-9\._-]+$',
+                'error_messages': {'regex': 'Пожалуйста, исправьте ошибку в логине Telegram: похоже, он неправильный'}
+            },
+            'link_template': 'https://t.me/{value}',
+            'title_template': '{value}',
+        },
+        {
             'name': 'tabun',
             'label': {
                 'default': 'Логин на Табуне',

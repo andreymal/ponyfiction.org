@@ -125,11 +125,21 @@ body {
     line-height: 16px;
     height: 16px;
     padding: 0 0 0 22px;
-    background: transparent url('../i/jabber.png') no-repeat 0 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.contact-links .contact-xmpp a {
+    background-image: url('../i/jabber.png');
 }
 
 .contact-links .contact-skype a {
     background-image: url('../i/skype.png');
+}
+
+.contact-links .contact-telegram a {
+    background-image: url('../i/telegram.png');
 }
 
 .contact-links .contact-tabun a {
