@@ -41,6 +41,8 @@ class Config(BaseConfig):
     DEFAULT_USERPIC = {'endpoint': 'localstatic', 'filename': 'i/userpic.jpg'}
     LOADING_ICON = {'endpoint': 'localstatic', 'filename': 'i/loading.gif'}
 
+    SITEMAP_PING_URLS = ['http://google.com/ping?sitemap={url}']
+
     CONTACTS = [
         {
             'name': 'xmpp',
