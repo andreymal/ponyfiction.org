@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import mini_fiction
-from mini_fiction.settings import Config as BaseConfig
+from mini_fiction.settings import Config as BaseConfig, Test as BaseTest
 
 
 class Config(BaseConfig):
@@ -120,7 +120,10 @@ class Config(BaseConfig):
 
 
 class Development(Config):
-    DEBUG = True
     SQL_DEBUG = True
     DEBUG_TB_ENABLED = True
     CHECK_PASSWORDS_SECURITY = False
+
+
+class Test(BaseTest):
+    pass

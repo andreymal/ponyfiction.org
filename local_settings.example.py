@@ -3,7 +3,7 @@
 
 import os
 
-from settings import Development
+from settings import Development, Test as BaseTest
 
 
 class Local(Development):
@@ -46,3 +46,8 @@ class Local(Development):
     SPHINX_ROOT = os.path.join(os.path.abspath(os.getcwd()), 'sphinx')
     SPHINX_SEARCHD = dict(Development.SPHINX_SEARCHD)
     SPHINX_SEARCHD['listen'] = '0.0.0.0:9306:mysql41'
+
+
+class Test(BaseTest):
+    # This config will be used with `python setup.py test` command
+    pass
