@@ -39,6 +39,21 @@ body {
 }
 
 
+/* Пони-аватарки */
+
+.user-avatar-placeholder {
+    background-image: url(../i/userpic.jpg);
+}
+
+
+
+/* Пони-иконка загрузки */
+
+.loader {
+    background-image: url(../i/loading.gif);
+}
+
+
 /* Красивые картинки, маскоты, графика, истерэги */
 
 #comment-add-link + .comment-form { /* only for non-answer comment form */
