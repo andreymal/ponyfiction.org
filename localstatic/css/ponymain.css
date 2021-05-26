@@ -19,19 +19,15 @@ body {
 /**
  * RSS + Twitter icons
 */
-.twitter {
-    background-image: url('../i/twitter.png');
-}
-
 .rss {
     background-image: url('../i/rss.png');
 }
 
-.rss:hover,.twitter:hover {
+.rss:hover {
     background-position: 0 -32px;
 }
 
-.rss,.twitter {
+.rss {
     float: right;
     width: 32px;
     height: 32px;
@@ -222,14 +218,14 @@ body {
     .servicelinks {
         display: none;
     }
-    .rss,.twitter {
+    .rss {
         margin: 0 0 0 6px;
     }
 }
 
 /* 320 px screens */
 @media ( max-width : 320px) {
-    .rss,.twitter {
+    .rss {
         display: none;
     }
 }
