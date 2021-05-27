@@ -1,0 +1,45 @@
+{
+  "name": "ponyfiction.org",
+  "version": "1.0.0",
+  "description": "Frontend components",
+  "scripts": {
+    "webpack": "webpack --progress",
+    "webpack:watch": "webpack --progress --watch",
+    "build": "cross-env NODE_ENV=production webpack --progress"
+  },
+  "author": {
+    "name": "Andriy Kushnir (Orhideous)",
+    "email": "me@orhideous.name",
+    "url": "https://orhideous.name/"
+  },
+  "contributors": [],
+  "license": "GPLv3",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/register": "^7.13.16",
+    "@babel/preset-env": "^7.14.0",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^5.2.4",
+    "cssnano": "^5.0.2",
+    "cssnano-preset-default": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "postcss": "^8.2.13",
+    "postcss-custom-properties": "^11.0.0",
+    "postcss-loader": "^5.2.0",
+    "postcss-mixins": "^7.0.3",
+    "postcss-nesting": "^8.0.0",
+    "source-map-loader": "^2.0.1",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.36.2",
+    "webpack-assets-manifest": "^5.0.6",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.6.0",
+    "webpack-remove-block-loader": "^1.0.2"
+  }
+}
