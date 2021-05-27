@@ -1,18 +1,24 @@
 {
   "name": "ponyfiction.org",
   "version": "1.0.0",
-  "description": "Frontend components",
+  "description": "ponyfiction.org styles",
   "scripts": {
     "webpack": "webpack --progress",
     "webpack:watch": "webpack --progress --watch",
     "build": "cross-env NODE_ENV=production webpack --progress"
   },
   "author": {
-    "name": "Andriy Kushnir (Orhideous)",
-    "email": "me@orhideous.name",
-    "url": "https://orhideous.name/"
+    "name": "andreymal",
+    "email": "andriyano-31@mail.ru",
+    "url": "https://ponyfiction.org/"
   },
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Andriy Kushnir (Orhideous)",
+      "email": "me@orhideous.name",
+      "url": "https://orhideous.name/"
+    }
+  ],
   "license": "GPLv3",
   "dependencies": {},
   "devDependencies": {
