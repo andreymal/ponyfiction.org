@@ -1,11 +1,12 @@
 import path from 'path';
+import zlib from 'zlib';
 import AssetsManifestPlugin from 'webpack-assets-manifest';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 
 import postCSSAutoPrefixer from 'autoprefixer';
 import postCSSNesting from 'postcss-nesting';
-import postCSSCustomProperties from 'postcss-custom-properties';
 import postCSSMixins from 'postcss-mixins';
 import postCSSNano from 'cssnano';
 
@@ -14,7 +15,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ENV = process.env.NODE_ENV || 'development';
 const isDev = ENV !== 'production';
 
-const outputPath = path.resolve(__dirname, 'localstatic');
+const outputPath = path.resolve(__dirname, 'ponyfiction');
 const outputName = `[name].${isDev ? 'dev' : '[contenthash]'}`;
 
 const postCSSOptions = {
@@ -22,10 +23,6 @@ const postCSSOptions = {
     postCSSAutoPrefixer(),
     postCSSMixins(),
     postCSSNesting(),
-    postCSSCustomProperties({
-      preserve: false,
-      warnings: true,
-    }),
     postCSSNano({
       preset: ['default', {
         discardComments: !isDev,
@@ -63,6 +60,24 @@ const devPlugins = [
   new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false }),
 ];
 
+const productionPlugins = [
+  new CompressionPlugin({
+    filename: '[path][base].gz',
+    algorithm: 'gzip',
+    exclude: /.map$/,
+  }),
+  new CompressionPlugin({
+    filename: '[path][base].br',
+    algorithm: 'brotliCompress',
+    exclude: /.map$/,
+    compressionOptions: {
+      params: {
+        [zlib.constants.BROTLI_PARAM_QUALITY]: 19,
+      },
+    },
+  }),
+];
+
 module.exports = {
   mode: ENV,
   context: path.resolve(__dirname, 'src'),
@@ -72,7 +87,7 @@ module.exports = {
 
   output: {
     path: outputPath,
-    publicPath: '/localstatic/',
+    publicPath: '/localstatic/ponyfiction/',
     filename: `${outputName}.js`,
   },
 
@@ -118,7 +133,7 @@ module.exports = {
       },
     },
   },
-  plugins: [...defaultPlugins, ...(isDev ? devPlugins : [])],
+  plugins: [...defaultPlugins, ...(isDev ? devPlugins : productionPlugins)],
 
   stats: { colors: true },
 
