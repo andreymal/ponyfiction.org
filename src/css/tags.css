@@ -1,0 +1,44 @@
+.story-tag[data-category-id="0"], .tag-item[data-category-id="0"] {
+    background-color: #999;
+}
+
+.story-tag[data-category-id="1"], .tag-item[data-category-id="1"] {
+    background-color: #40589C;
+}
+
+.story-tag[data-category-id="2"], .tag-item[data-category-id="2"] {
+    background-color: #3255B3;
+}
+
+.story-tag[data-category-id="3"], .tag-item[data-category-id="3"] {
+    background-color: #598022;
+}
+
+.story-tag[data-category-id="4"], .tag-item[data-category-id="4"] {
+    background-color: #879621;
+}
+
+.story-tag[data-category-id="5"], .tag-item[data-category-id="5"] {
+    background-color: #9C4C3A;
+}
+
+.story-tag[data-category-id="6"], .tag-item[data-category-id="6"] {
+    background-color: #9D781B;
+}
+
+.story-tag[data-category-id="7"], .tag-item[data-category-id="7"] {
+    background-color: #4778FF;
+}
+
+.story-tag[data-category-id="8"], .tag-item[data-category-id="8"] {
+    background-color: #2D8308;
+}
+
+.story-tag[data-category-id="9"], .tag-item[data-category-id="9"] {
+    background-color: #707375;
+}
+
+.story-tag[data-category-id="10"], .tag-item[data-category-id="10"] {
+    background-color: #B57B16;
+}
+
