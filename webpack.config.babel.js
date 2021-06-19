@@ -82,7 +82,7 @@ module.exports = {
   mode: ENV,
   context: path.resolve(__dirname, 'src'),
   entry: {
-    ponymain: './ponymain.css',
+    index: './index.css',
   },
 
   output: {
@@ -124,8 +124,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        ponymain: {
-          name: 'ponymain',
+          index: {
+          name: 'index',
           type: 'css/mini-extract',
           chunks: 'all',
           enforce: true,
