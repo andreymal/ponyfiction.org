@@ -82,7 +82,7 @@ module.exports = {
   mode: ENV,
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: './index.css',
+    index: ['index.js', './index.css'],
   },
 
   output: {
@@ -111,7 +111,16 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
+            test: /fav\/.*\.(ico|png)$/,
+            type: 'asset/resource',
+            parser: {
+                dataUrlCondition: {
+                    maxSize: 0,
+                },
+            },
+        },
+      {
+        test: /(icons|pageart)\/.*\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {
