@@ -2,18 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import mini_fiction
-from mini_fiction.settings import Config as BaseConfig, Test as BaseTest
+from mini_fiction.settings import Config as BaseConfig
 
 
-class Config(BaseConfig):
+class PonyfictionConfig:
     SITE_NAME = {'default': 'Библиотека ponyfiction.org'}
     SITE_INDEX_TITLE = {'default': 'Библиотека ponyfiction.org'}
     SITE_DESCRIPTION = {'default': 'Библиотека фанфиков по вселенной сериала My Little Pony: Friendship is Magic'}
     SITE_FEEDBACK = 'https://tabun.everypony.ru/talk/add/?talk_users=andreymal'
 
-    USER_AGENT_POSTFIX = 'ponyfiction.org/{}'.format(mini_fiction.__version__)
+    SERVER_NAME_REGEX = r'(stories\.everypony\.(ru|org|info))|ponyfiction\.org'
 
-    CACHE_KEY_PREFIX = 'mfc_pf_'
+    USER_AGENT_POSTFIX = 'ponyfiction.org/{}'.format(mini_fiction.__version__)
 
     REGISTRATION_AUTO_LOGIN = True
     REGISTRATION_OPEN = True
@@ -115,13 +115,3 @@ class Config(BaseConfig):
             'title_template': '{value}',
         },
     ]
-
-
-class Development(Config):
-    SQL_DEBUG = True
-    DEBUG_TB_ENABLED = True
-    CHECK_PASSWORDS_SECURITY = False
-
-
-class Test(BaseTest):
-    pass
