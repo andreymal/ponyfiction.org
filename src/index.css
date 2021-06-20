@@ -1,4 +1,5 @@
 @import "./css/tags.css";
+@import "./css/special_pages.css";
 
 body {
     background: #c5ccfe url(./icons/body-bg.png) repeat 0 0;
@@ -44,7 +45,6 @@ body {
 }
 
 
-
 /* Пони-иконка загрузки */
 
 .loader {
@@ -58,69 +58,6 @@ body {
     background: transparent url(./pageart/comments.png) no-repeat 90% 100%;
     min-height: 250px;
 }
-
-.page-404 {
-    background: transparent url(./pageart/404.png) no-repeat 90% 100%;
-}
-
-.page-500 {
-    background: transparent url(./pageart/500.png) no-repeat 90% 100%;
-}
-
-.page-tech-work {
-    background: transparent url(./pageart/tech-work.png) no-repeat 90% 100%;
-}
-
-.page-502 {
-    background: transparent url(./pageart/502.png) no-repeat 90% 80%;
-}
-
-.passres-form {
-    background: transparent url(./pageart/passres-form.png) no-repeat
-        90% 90%;
-}
-
-.passres-confirm {
-    background: transparent url(./pageart/passres-confirm.png)
-        no-repeat 90% 100%;
-}
-
-.passres-complete {
-    background: transparent url(./pageart/passres-complete.png)
-        no-repeat 90% 100%;
-}
-
-.passres-done {
-    background: transparent url(./pageart/passres-done.png) no-repeat
-        90% 90%;
-}
-
-.login-page {
-    background: transparent url(./pageart/login.png) no-repeat 90% 100%;
-}
-
-.page-faq {
-    background: transparent url(./pageart/faq.png) no-repeat 90% 100%;
-}
-
-.page-terms {
-    background: transparent url(./pageart/terms.png) no-repeat 90% 100%;
-}
-
-.page-help {
-    background: transparent url(./pageart/help.png) no-repeat 90% 100%;
-}
-
-.page-special,.page-404 .message-404,.message-502,.message-403
-    {
-    margin-bottom: 200px;
-}
-
-.pageart {
-    min-height: 200px;
-    text-align: right;
-}
-
 
 /* Голосования-подковки */
 
@@ -216,17 +153,18 @@ body {
 
 
 /* Smartphones */
-@media ( max-width : 480px) {
+@media ( max-width: 480px) {
     .servicelinks {
         display: none;
     }
+
     .rss {
         margin: 0 0 0 6px;
     }
 }
 
 /* 320 px screens */
-@media ( max-width : 320px) {
+@media ( max-width: 320px) {
     .rss {
         display: none;
     }

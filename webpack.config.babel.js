@@ -120,7 +120,7 @@ module.exports = {
             },
         },
       {
-        test: /(icons|pageart)\/.*\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
+        test: /(icons|pageart)\/.*\.(png|webp|jpg|gif|eot|ttf|woff|woff2)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {

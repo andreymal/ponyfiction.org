@@ -1,0 +1,83 @@
+@define-mixin tag-box $image {
+    background-image: url(../pageart/$(image).png);
+    /* Progressive enhancement for new browsers */
+    background-image: -webkit-image-set(url(../pageart/$(image).webp) 1x); /* Chrome and new Safari — https://bugs.chromium.org/p/chromium/issues/detail?id=630597 */
+    background-image: image-set(url(../pageart/$(image).webp) type("image/webp"));  /* Firefox */
+    /* TODO: Add adaptive stuff */
+}
+
+.page-404,
+.page-500,
+.page-tech-work,
+.page-502,
+.passres-form,
+.passres-confirm,
+.passres-complete,
+.passres-done,
+.login-page,
+.page-faq,
+.page-terms,
+.page-help {
+    background-repeat: no-repeat;
+    background-position: 90% 100%;
+    background-color: transparent;
+}
+
+
+.page-404 {
+    @mixin tag-box 404;
+}
+
+.page-500 {
+    @mixin tag-box 500;
+}
+
+.page-tech-work {
+    @mixin tag-box tech-work;
+}
+
+.page-502 {
+    @mixin tag-box 502;
+}
+
+.passres-form {
+    @mixin tag-box passres-form;
+}
+
+.passres-confirm {
+    @mixin tag-box passres-confirm;
+}
+
+.passres-complete {
+    @mixin tag-box passres-complete;
+}
+
+.passres-done {
+    @mixin tag-box passres-done;
+}
+
+.login-page {
+    @mixin tag-box login;
+}
+
+.page-faq {
+    @mixin tag-box faq;
+}
+
+.page-terms {
+    @mixin tag-box terms;
+}
+
+.page-help {
+    @mixin tag-box help;
+}
+
+/* FIXME: drop this after redesign */
+.page-special, .page-404 .message-404, .message-502, .message-403 {
+    margin-bottom: 200px;
+}
+
+.pageart {
+    min-height: 200px;
+    text-align: right;
+}
