@@ -1,0 +1,12 @@
+.loader {
+    background-image: url(../assets/loading.gif);
+}
+
+
+#comment-add-link + .comment-form { /* only for non-answer comment form */
+    @mixin pageart comments;
+    min-height: 250px;
+    background-repeat: no-repeat;
+    background-position: 90% 100%;
+    background-color: transparent;
+}

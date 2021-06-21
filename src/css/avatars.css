@@ -1,0 +1,16 @@
+.user-avatar-placeholder {
+    margin: 0;
+    background-image: url(../assets/avatars/userpic_32.png);
+    background-image: -webkit-image-set(
+        url(../assets/avatars/userpic_32.webp) 1x,
+        url(../assets/avatars/userpic_48.webp) 1.5x,
+        url(../assets/avatars/userpic_64.webp) 2x,
+        url(../assets/avatars/userpic_128.webp) 3x
+    );
+    background-image: image-set(
+        url(../assets/avatars/userpic_32.webp) 1x type("image/webp"),
+        url(../assets/avatars/userpic_48.webp) 1.5x type("image/webp"),
+        url(../assets/avatars/userpic_64.webp) 2x type("image/webp"),
+        url(../assets/avatars/userpic_128.webp) 3x type("image/webp")
+    );
+}

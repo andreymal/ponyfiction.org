@@ -1,0 +1,56 @@
+
+.servicelinks {
+    display: block;
+    text-align: right;
+    list-style-type: none;
+}
+
+.servicelinks a {
+    font-size: 10px;
+    color: #E6E9F2;
+    text-decoration: none;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.main-menu {
+    padding-top: 4px;
+}
+
+
+@media (min-width: 980px) {
+    /* like everypony.ru */
+    .page-header, .footer, .nav-main {
+        margin: 0 -26px;
+        width: auto;
+    }
+}
+
+@media (max-width: 979px) {
+    .nav-main {
+        margin: 0;
+        width: auto;
+    }
+
+}
+
+
+@media (max-width: 979px) {
+    #comment-add-link + .comment-form {
+        background: transparent none;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .nav-main-links {
+        background-color: #1D2A4F;
+    }
+}
+
+
+/* Smartphones */
+@media ( max-width: 480px) {
+    .servicelinks {
+        display: none;
+    }
+}

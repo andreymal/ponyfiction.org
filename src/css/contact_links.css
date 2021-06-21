@@ -1,0 +1,36 @@
+.contact-links {
+    & a::before {
+        @mixin centered-mask;
+        content: "";
+        padding-left: 1.4em;
+    }
+
+    & .contact-xmpp a::before {
+        @mixin mask url(../assets/contacts/xmpp.svg), var(--xmpp-contact-color);
+    }
+
+    & .contact-skype a::before {
+        @mixin mask url(../assets/contacts/skype.svg), var(--skype-contact-color);
+    }
+
+    & .contact-telegram a::before {
+        @mixin mask url(../assets/contacts/telegram.svg), var(--telegram-contact-color);
+    }
+
+    & .contact-tabun a::before {
+        @mixin mask url(../assets/contacts/tabun.svg), var(--tabun-contact-color);
+    }
+
+    & .contact-forum a::before {
+        @mixin mask url(../assets/contacts/forum.svg), var(--forum-contact-color);
+    }
+
+    & .contact-vk a::before {
+        @mixin mask url(../assets/contacts/vk.svg), var(--vk-contact-color);
+    }
+
+    & .contact-website a::before {
+        @mixin mask url(../assets/contacts/website.svg), #0086E5;
+    }
+
+}

@@ -21,7 +21,9 @@ const outputName = `[name].${isDev ? 'dev' : '[contenthash]'}`;
 const postCSSOptions = {
   plugins: [
     postCSSAutoPrefixer(),
-    postCSSMixins(),
+    postCSSMixins({
+      mixinsFiles: path.join(__dirname, 'src', 'css', 'mixins.pcss'),
+    }),
     postCSSNesting(),
     postCSSNano({
       preset: ['default', {
@@ -111,7 +113,7 @@ module.exports = {
         ],
       },
       {
-            test: /fav\/.*\.(ico|png)$/,
+            test: /favicons\/.*\.(ico|png)$/,
             type: 'asset/resource',
             parser: {
                 dataUrlCondition: {
@@ -120,7 +122,7 @@ module.exports = {
             },
         },
       {
-        test: /(icons|pageart)\/.*\.(png|webp|jpg|gif|eot|ttf|woff|woff2)$/,
+        test: /(assets|pageart)\/.*\.(png|webp|svg|jpg|gif|eot|ttf|woff|woff2)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {

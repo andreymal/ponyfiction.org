@@ -1,0 +1,9 @@
+.comment-vote-area .vote-up {
+    @mixin centered-mask;
+    @mixin mask url(../assets/votes/upvote.svg), var(--upvote-color);
+}
+
+.comment-vote-area .vote-down {
+    @mixin centered-mask;
+    @mixin mask url(../assets/votes/downvote.svg), var(--downvote-color);
+}

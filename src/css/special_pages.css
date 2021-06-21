@@ -1,11 +1,3 @@
-@define-mixin tag-box $image {
-    background-image: url(../pageart/$(image).png);
-    /* Progressive enhancement for new browsers */
-    background-image: -webkit-image-set(url(../pageart/$(image).webp) 1x); /* Chrome and new Safari — https://bugs.chromium.org/p/chromium/issues/detail?id=630597 */
-    background-image: image-set(url(../pageart/$(image).webp) type("image/webp"));  /* Firefox */
-    /* TODO: Add adaptive stuff */
-}
-
 .page-404,
 .page-500,
 .page-tech-work,
@@ -25,51 +17,51 @@
 
 
 .page-404 {
-    @mixin tag-box 404;
+    @mixin pageart 404;
 }
 
 .page-500 {
-    @mixin tag-box 500;
+    @mixin pageart 500;
 }
 
 .page-tech-work {
-    @mixin tag-box tech-work;
+    @mixin pageart tech-work;
 }
 
 .page-502 {
-    @mixin tag-box 502;
+    @mixin pageart 502;
 }
 
 .passres-form {
-    @mixin tag-box passres-form;
+    @mixin pageart passres-form;
 }
 
 .passres-confirm {
-    @mixin tag-box passres-confirm;
+    @mixin pageart passres-confirm;
 }
 
 .passres-complete {
-    @mixin tag-box passres-complete;
+    @mixin pageart passres-complete;
 }
 
 .passres-done {
-    @mixin tag-box passres-done;
+    @mixin pageart passres-done;
 }
 
 .login-page {
-    @mixin tag-box login;
+    @mixin pageart login;
 }
 
 .page-faq {
-    @mixin tag-box faq;
+    @mixin pageart faq;
 }
 
 .page-terms {
-    @mixin tag-box terms;
+    @mixin pageart terms;
 }
 
 .page-help {
-    @mixin tag-box help;
+    @mixin pageart help;
 }
 
 /* FIXME: drop this after redesign */

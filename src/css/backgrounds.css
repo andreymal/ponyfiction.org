@@ -1,0 +1,22 @@
+body {
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-color: var(--background-color);
+    background-image: url(../assets/background.svg);
+    background-size: 6%;
+}
+
+.page-header,
+.nav-main,
+.footer {
+    background-image: url(../assets/background-head.png);
+    background-color: var(--background-color-dark-blend);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+
+.nav-main {
+    margin: 0 -26px 0;  /* Drop this legacy hack altogether */
+    background-position: 0 -80px;
+}
