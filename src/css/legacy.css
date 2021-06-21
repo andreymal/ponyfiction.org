@@ -1,26 +1,11 @@
-
-.servicelinks {
-    display: block;
-    text-align: right;
-    list-style-type: none;
+.page-header {
+    display: flex;
+    align-items: center;
 }
-
-.servicelinks a {
-    font-size: 10px;
-    color: #E6E9F2;
-    text-decoration: none;
-    font-family: Verdana, Arial, sans-serif;
-}
-
-.main-menu {
-    padding-top: 4px;
-}
-
 
 @media (min-width: 980px) {
-    /* like everypony.ru */
     .page-header, .footer, .nav-main {
-        margin: 0 -20px; /* FIXME: Drop overhangs at all */
+        margin: 0 -20px; /* NOTE: Overhangs are dropped in new design */
         width: auto;
     }
 }
@@ -33,7 +18,6 @@
 
 }
 
-
 @media (max-width: 979px) {
     #comment-add-link + .comment-form {
         background: transparent none;
@@ -44,13 +28,5 @@
 @media (max-width: 640px) {
     .nav-main-links {
         background-color: #1D2A4F;
-    }
-}
-
-
-/* Smartphones */
-@media ( max-width: 480px) {
-    .servicelinks {
-        display: none;
     }
 }
