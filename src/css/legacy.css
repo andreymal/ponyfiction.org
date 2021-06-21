@@ -20,7 +20,7 @@
 @media (min-width: 980px) {
     /* like everypony.ru */
     .page-header, .footer, .nav-main {
-        margin: 0 -26px;
+        margin: 0 -20px; /* FIXME: Drop overhangs at all */
         width: auto;
     }
 }
