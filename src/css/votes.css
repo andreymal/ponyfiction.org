@@ -1,9 +1,10 @@
-.comment-vote-area .vote-up {
-    @mixin centered-mask;
-    @mixin mask url(../assets/votes/upvote.svg), var(--upvote-color);
+.vote-up {
+    background-image: url(../assets/votes/upvote.svg);
+    -svg-mixer-fill: var(--upvote-color);
+
 }
 
-.comment-vote-area .vote-down {
-    @mixin centered-mask;
-    @mixin mask url(../assets/votes/downvote.svg), var(--downvote-color);
+.vote-down {
+    background-image: url(../assets/votes/downvote.svg);
+    -svg-mixer-fill: var(--downvote-color);
 }

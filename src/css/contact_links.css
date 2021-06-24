@@ -1,36 +1,49 @@
-.contact-links {
-    & a::before {
-        @mixin centered-mask;
+.contact-label {
+    display: none;
+}
+
+.contact-links a {
+    text-decoration: none;
+
+    &::before {
         content: "";
-        padding-left: 1.4em;
+        padding-left: 1.5em;
+        background-position: center;
+        background-repeat: no-repeat;
     }
+}
 
-    & .contact-xmpp a::before {
-        @mixin mask url(../assets/contacts/xmpp.svg), var(--xmpp-contact-color);
-    }
+.contact-xmpp a::before {
+    background-image: url(../assets/contacts/xmpp.svg);
+    -svg-mixer-fill: var(--xmpp-contact-color);
+}
 
-    & .contact-skype a::before {
-        @mixin mask url(../assets/contacts/skype.svg), var(--skype-contact-color);
-    }
+.contact-skype a::before {
+    background-image: url(../assets/contacts/skype.svg);
+    -svg-mixer-fill: var(--skype-contact-color);
+}
 
-    & .contact-telegram a::before {
-        @mixin mask url(../assets/contacts/telegram.svg), var(--telegram-contact-color);
-    }
+.contact-telegram a::before {
+    background-image: url(../assets/contacts/telegram.svg);
+    -svg-mixer-fill: var(--telegram-contact-color);
+}
 
-    & .contact-tabun a::before {
-        @mixin mask url(../assets/contacts/tabun.svg), var(--tabun-contact-color);
-    }
+.contact-tabun a::before {
+    background-image: url(../assets/contacts/tabun.svg);
+    -svg-mixer-fill: var(--tabun-contact-color);
+}
 
-    & .contact-forum a::before {
-        @mixin mask url(../assets/contacts/forum.svg), var(--forum-contact-color);
-    }
+.contact-forum a::before {
+    background-image: url(../assets/contacts/forum.svg);
+    -svg-mixer-fill: var(--forum-contact-color);
+}
 
-    & .contact-vk a::before {
-        @mixin mask url(../assets/contacts/vk.svg), var(--vk-contact-color);
-    }
+.contact-vk a::before {
+    background-image: url(../assets/contacts/vk.svg);
+    -svg-mixer-fill: var(--vk-contact-color);
+}
 
-    & .contact-website a::before {
-        @mixin mask url(../assets/contacts/website.svg), #0086E5;
-    }
-
+.contact-website a::before {
+    background-image: url(../assets/contacts/website.svg);
+    -svg-mixer-fill: var(--website-contact-color);
 }

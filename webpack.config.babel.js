@@ -9,6 +9,8 @@ import postCSSAutoPrefixer from 'autoprefixer';
 import postCSSNesting from 'postcss-nesting';
 import postCSSMixins from 'postcss-mixins';
 import postCSSNano from 'cssnano';
+import postCSSCustomProperties from 'postcss-custom-properties';
+import postCSSMoveProps from 'postcss-move-props-to-bg-image-query';
 
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
@@ -25,6 +27,12 @@ const postCSSOptions = {
       mixinsFiles: path.join(__dirname, 'src', 'css', 'mixins.pcss'),
     }),
     postCSSNesting(),
+    postCSSMoveProps({
+      computeCustomProps: postCSSCustomProperties({
+          preserve: false,
+          importFrom: path.resolve(__dirname, 'src', 'css', 'variables.css'),
+      }).Once,
+    }),
     postCSSNano({
       preset: ['default', {
         discardComments: !isDev,
@@ -121,8 +129,15 @@ module.exports = {
                 },
             },
         },
+        {
+            test: /\.svg(\?.*)?$/, // match img.svg and img.svg?param=value
+            use: [
+                'svg-url-loader', // or file-loader or svg-url-loader
+                'svg-transform-loader',
+            ],
+        },
       {
-        test: /(assets|pageart)\/.*\.(png|webp|svg|jpg|gif|eot|ttf|woff|woff2)$/,
+        test: /(assets|pageart)\/.*\.(png|webp|jpg|gif|eot|ttf|woff|woff2)$/,
         type: 'asset',
         parser: {
           dataUrlCondition: {

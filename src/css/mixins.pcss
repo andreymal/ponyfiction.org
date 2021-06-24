@@ -5,17 +5,3 @@
     background-image: image-set(url(../pageart/$(image).webp) type("image/webp"));  /* Firefox */
     /* TODO: Add adaptive stuff */
 }
-
-@define-mixin centered-mask {
-    mask-position: center;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-}
-
-@define-mixin mask $image, $with {
-    mask-image: $image;
-    -webkit-mask-image: $image;
-    background-image: none;
-    background-color: $with;
-}
