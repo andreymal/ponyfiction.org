@@ -2,6 +2,7 @@ body {
     background-repeat: repeat;
     background-position: 0 0;
     background-color: var(--background-color);
+    background-blend-mode: luminosity;
     background-image: url(../assets/background.svg);
     background-size: 6%;
 }
