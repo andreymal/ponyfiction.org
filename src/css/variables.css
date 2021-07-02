@@ -1,0 +1,15 @@
+:root {
+    --background-color: #b9c1fd;
+    --background-color-dark-blend: #34487f;
+
+    --upvote-color: #729D34;
+    --downvote-color: #DC6F65;
+
+    --xmpp-contact-color: #C61010;
+    --skype-contact-color: #00AAEF;
+    --telegram-contact-color: #24A2D3;
+    --tabun-contact-color: #F8A74E;
+    --forum-contact-color: #251A5F;
+    --vk-contact-color: #4D81B9;
+    --website-contact-color: #0086E5;
+}

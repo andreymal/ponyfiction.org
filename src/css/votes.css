@@ -1,0 +1,10 @@
+.vote-up {
+    background-image: url(../assets/votes/upvote.svg);
+    -svg-mixer-fill: var(--upvote-color);
+
+}
+
+.vote-down {
+    background-image: url(../assets/votes/downvote.svg);
+    -svg-mixer-fill: var(--downvote-color);
+}

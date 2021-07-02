@@ -1,2 +1,2 @@
-import './fav/favicon.ico';
-import './fav/favicon.png';
+import './favicons/favicon.ico';
+import './favicons/favicon.png';

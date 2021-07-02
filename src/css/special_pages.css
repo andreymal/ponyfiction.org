@@ -1,0 +1,75 @@
+.page-404,
+.page-500,
+.page-tech-work,
+.page-502,
+.passres-form,
+.passres-confirm,
+.passres-complete,
+.passres-done,
+.login-page,
+.page-faq,
+.page-terms,
+.page-help {
+    background-repeat: no-repeat;
+    background-position: 90% 100%;
+    background-color: transparent;
+}
+
+
+.page-404 {
+    @mixin pageart 404;
+}
+
+.page-500 {
+    @mixin pageart 500;
+}
+
+.page-tech-work {
+    @mixin pageart tech-work;
+}
+
+.page-502 {
+    @mixin pageart 502;
+}
+
+.passres-form {
+    @mixin pageart passres-form;
+}
+
+.passres-confirm {
+    @mixin pageart passres-confirm;
+}
+
+.passres-complete {
+    @mixin pageart passres-complete;
+}
+
+.passres-done {
+    @mixin pageart passres-done;
+}
+
+.login-page {
+    @mixin pageart login;
+}
+
+.page-faq {
+    @mixin pageart faq;
+}
+
+.page-terms {
+    @mixin pageart terms;
+}
+
+.page-help {
+    @mixin pageart help;
+}
+
+/* FIXME: drop this after redesign */
+.page-special, .page-404 .message-404, .message-502, .message-403 {
+    margin-bottom: 200px;
+}
+
+.pageart {
+    min-height: 200px;
+    text-align: right;
+}
