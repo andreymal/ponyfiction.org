@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import mini_fiction
 from mini_fiction.settings import Config as BaseConfig
 
@@ -25,8 +22,6 @@ class PonyfictionConfig:
 
     CAPTCHA_CLASS = 'mini_fiction.captcha.ReCaptcha'
     CAPTCHA_FOR_GUEST_COMMENTS = False
-
-    AVATARS_UPLOADING = True
 
     LOCALSTATIC_ROOT = 'localstatic'
     LOCALTEMPLATES = 'templates'

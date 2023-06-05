@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from mini_fiction.settings import Development, Test as BaseTest
+from mini_fiction.settings import Development
 
 from ponyfiction_settings import PonyfictionConfig
 
@@ -46,8 +46,3 @@ class Local(PonyfictionConfig, Development):
     SPHINX_ROOT = os.path.join(os.path.abspath(os.getcwd()), "sphinx")
     SPHINX_SEARCHD = dict(Development.SPHINX_SEARCHD)
     SPHINX_SEARCHD["listen"] = "0.0.0.0:9306:mysql41"
-
-
-class Test(BaseTest):
-    # This config will be used with `python setup.py test` command
-    pass
