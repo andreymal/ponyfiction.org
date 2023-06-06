@@ -65,8 +65,14 @@
 }
 
 /* FIXME: drop this after redesign */
-.page-special, .page-404 .message-404, .message-502, .message-403 {
-    margin-bottom: 200px;
+.page-special,
+.message-403,
+.message-404,
+.message-502,
+.page-terms .staticpage-content,
+.page-help .staticpage-content,
+.page-faq .staticpage-content {
+    margin-bottom: 242px;
 }
 
 .pageart {
