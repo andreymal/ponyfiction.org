@@ -11,7 +11,7 @@ body {
 .nav-main,
 .footer {
     background-color: var(--background-color-dark-blend);
-    background-size: cover;
+    background-size: 100% auto;
     background-blend-mode: multiply;
     background-image: url(../assets/background-head-1x.png);
     background-image: -webkit-image-set(
@@ -27,8 +27,6 @@ body {
 
 }
 
-
 .nav-main {
-    margin: 0 -26px 0;  /* Drop this legacy hack altogether */
     background-position: 0 -80px;
 }

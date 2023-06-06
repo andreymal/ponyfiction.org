@@ -1,23 +1,3 @@
-.page-header {
-    display: flex;
-    align-items: center;
-}
-
-@media (min-width: 980px) {
-    .page-header, .footer, .nav-main {
-        margin: 0 -20px; /* NOTE: Overhangs are dropped in new design */
-        width: auto;
-    }
-}
-
-@media (max-width: 979px) {
-    .nav-main {
-        margin: 0;
-        width: auto;
-    }
-
-}
-
 @media (max-width: 979px) {
     #comment-add-link + .comment-form {
         background: transparent none;
