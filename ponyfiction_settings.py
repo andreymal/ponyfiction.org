@@ -7,6 +7,7 @@ class PonyfictionConfig:
     SITE_INDEX_TITLE = {'default': 'Библиотека ponyfiction.org'}
     SITE_DESCRIPTION = {'default': 'Библиотека фанфиков по вселенной сериала My Little Pony: Friendship is Magic'}
     SITE_FEEDBACK = 'https://tabun.everypony.ru/talk/add/?talk_users=andreymal'
+    COPYRIGHT = {'default': 'Все права принадлежат пони.'}
 
     SERVER_NAME_REGEX = r'(stories\.everypony\.(ru|org|info))|ponyfiction\.org'
 
