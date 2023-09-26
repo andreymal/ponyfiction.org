@@ -96,7 +96,7 @@ module.exports = {
   mode: ENV,
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: ['index.js', './index.css'],
+    index: ['./index.js', './index.css'],
   },
 
   output: {
@@ -119,9 +119,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          { loader: MiniCssExtractPlugin.loader, options: extractLoaderOptions },
-          { loader: 'css-loader', options: cssLoaderOptions },
-          { loader: 'postcss-loader', options: { postcssOptions: postCSSOptions } },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: extractLoaderOptions,
+          },
+          {
+            loader: 'css-loader',
+            options: cssLoaderOptions,
+          },
+          {
+            loader: 'postcss-loader',
+            options: { postcssOptions: postCSSOptions },
+          },
         ],
       },
       {
