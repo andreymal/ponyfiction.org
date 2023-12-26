@@ -40,6 +40,7 @@ class Local(PonyfictionConfig, Development):
     # STATIC_ROOT = os.path.join(os.getcwd(), "static")
     # MEDIA_ROOT = Path.cwd() / "media"
 
+    SPHINX_DISABLED = False
     SPHINX_CONFIG = dict(Development.SPHINX_CONFIG)
     SPHINX_CONFIG["connection_params"] = {"host": "127.0.0.1", "port": 9306, "charset": "utf8"}
 

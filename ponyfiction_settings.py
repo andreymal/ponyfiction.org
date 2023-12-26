@@ -11,7 +11,7 @@ class PonyfictionConfig:
 
     SERVER_NAME_REGEX = r'(stories\.everypony\.(ru|org|info))|ponyfiction\.org'
 
-    USER_AGENT_POSTFIX = 'ponyfiction.org/{}'.format(mini_fiction.__version__)
+    USER_AGENT_POSTFIX = f'ponyfiction.org/{mini_fiction.__version__}'
 
     REGISTRATION_AUTO_LOGIN = True
     REGISTRATION_OPEN = True
@@ -19,9 +19,6 @@ class PonyfictionConfig:
     CELERY_CONFIG = dict(BaseConfig.CELERY_CONFIG)
     CELERY_CONFIG['task_always_eager'] = False
 
-    SPHINX_DISABLED = False
-
-    CAPTCHA_CLASS = 'mini_fiction.captcha.ReCaptcha'
     CAPTCHA_FOR_GUEST_COMMENTS = False
 
     LOCALSTATIC_ROOT = 'localstatic'
