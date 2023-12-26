@@ -40,7 +40,14 @@ class Local(PonyfictionConfig, Development):
     # STATIC_ROOT = os.path.join(os.getcwd(), "static")
     # MEDIA_ROOT = Path.cwd() / "media"
 
-    SPHINX_DISABLED = False
+    # Uncomment if you want to use a dedicated Celery worker
+    # CELERY_CONFIG = dict(Development.CELERY_CONFIG)
+    # CELERY_CONFIG['task_always_eager'] = False
+    # CELERY_CONFIG['broker_url'] = 'redis://localhost:6379/0'
+
+    # Uncomment if you want to use Manticore
+    # SPHINX_DISABLED = False
+
     SPHINX_CONFIG = dict(Development.SPHINX_CONFIG)
     SPHINX_CONFIG["connection_params"] = {"host": "127.0.0.1", "port": 9306, "charset": "utf8"}
 

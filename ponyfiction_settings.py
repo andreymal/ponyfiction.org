@@ -16,9 +16,6 @@ class PonyfictionConfig:
     REGISTRATION_AUTO_LOGIN = True
     REGISTRATION_OPEN = True
 
-    CELERY_CONFIG = dict(BaseConfig.CELERY_CONFIG)
-    CELERY_CONFIG['task_always_eager'] = False
-
     CAPTCHA_FOR_GUEST_COMMENTS = False
 
     LOCALSTATIC_ROOT = 'localstatic'
