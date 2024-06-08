@@ -28,7 +28,7 @@ const postCSSOptions = {
     postCSSMixins({
       mixinsFiles: path.join(__dirname, 'src', 'css', 'mixins.pcss'),
     }),
-    postCSSNesting(),
+    postCSSNesting({ edition: '2024-02' }),
     postCSSMoveProps({
       computeCustomProps: root => postcss([
         postCSSGlobalData({
