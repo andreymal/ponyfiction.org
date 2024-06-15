@@ -2,6 +2,7 @@
   "name": "ponyfiction.org",
   "version": "1.0.0",
   "description": "ponyfiction.org styles",
+  "type": "module",
   "scripts": {
     "webpack": "webpack --progress",
     "webpack:watch": "webpack --progress --watch",
@@ -24,7 +25,6 @@
   "devDependencies": {
     "@babel/core": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
-    "@babel/register": "^7.24.6",
     "@csstools/postcss-global-data": "^2.1.1",
     "autoprefixer": "^10.4.19",
     "babel-loader": "^9.1.3",
